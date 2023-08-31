@@ -1,0 +1,72 @@
+1. pip install playsound 
+Error: 
+Collecting playsound
+  Using cached playsound-1.3.0.tar.gz (7.7 kB)
+  Installing build dependencies ... done
+  Getting requirements to build wheel ... error
+  error: subprocess-exited-with-error     
+
+  × Getting requirements to build wheel did not run successfully.
+  │ exit code: 1
+  ╰─> [23 lines of output]
+      Traceback (most recent call last):  
+        File "C:\Users\james\AppData\Local\Programs\Python\Python39\lib\site-packages\pip\_vendor\pyproject_hooks\_in_process\_in_process.py", line 353, in <module>    
+          main()
+        File "C:\Users\james\AppData\Local\Programs\Python\Python39\lib\site-packages\pip\_vendor\pyproject_hooks\_in_process\_in_process.py", line 335, in main        
+          json_out['return_val'] = hook(**hook_input['kwargs'])
+        File "C:\Users\james\AppData\Local\Programs\Python\Python39\lib\site-packages\pip\_vendor\pyproject_hooks\_in_process\_in_process.py", line 118, in get_requires_for_build_wheel
+          return hook(config_settings)    
+        File "C:\Users\james\AppData\Local\Temp\pip-build-env-v3_29a4l\overlay\Lib\site-packages\setuptools\build_meta.py", line 355, in get_requires_for_build_wheel   
+          return self._get_build_requires(config_settings, requirements=['wheel'])  
+        File "C:\Users\james\AppData\Local\Temp\pip-build-env-v3_29a4l\overlay\Lib\site-packages\setuptools\build_meta.py", line 325, in _get_build_requires
+          self.run_setup()
+        File "C:\Users\james\AppData\Local\Temp\pip-build-env-v3_29a4l\overlay\Lib\site-packages\setuptools\build_meta.py", line 507, in run_setup
+          super(_BuildMetaLegacyBackend, self).run_setup(setup_script=setup_script) 
+        File "C:\Users\james\AppData\Local\Temp\pip-build-env-v3_29a4l\overlay\Lib\site-packages\setuptools\build_meta.py", line 341, in run_setup
+          exec(code, locals())
+        File "<string>", line 6, in <module>
+        File "C:\Users\james\AppData\Local\Programs\Python\Python39\lib\inspect.py", line 1024, in getsource
+          lines, lnum = getsourcelines(object)
+        File "C:\Users\james\AppData\Local\Programs\Python\Python39\lib\inspect.py", line 1006, in getsourcelines
+          lines, lnum = findsource(object)
+        File "C:\Users\james\AppData\Local\Programs\Python\Python39\lib\inspect.py", line 835, in findsource
+          raise OSError('could not get source code')
+      OSError: could not get source code  
+      [end of output]
+
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+error: subprocess-exited-with-error       
+
+│ exit code: 1
+╰─> See above for output.
+
+note: This error originates from a subprocess, and is likely not a problem with pip.PS
+
+Solution: 
+pip install playsound==1.2.2
+
+2. 
+Error: Exception has occurred: TypeError
+'float' object is not iterable
+  File "C:\Users\james\Downloads\Visual Impaired Cam\renderdjangotest1-main\inputdemo\utils\utils.py", line 57, in draw_bbox
+    bbox = [int(coord) for coord in bbox]
+  File "C:\Users\james\Downloads\Visual Impaired Cam\renderdjangotest1-main\inputdemo\utils\utils.py", line 106, in <module>
+    draw_bbox(image, detection_results)
+TypeError: 'float' object is not iterable
+
+Solution:
+Change 
+for item in range(len(class_id)):
+        class_name = results[0].names[class_id[item]]
+        bbox = box_squeeze[item]
+        bbox = [int(coord) for coord in bbox]
+To 
+for item in range(len(class_id)):
+        class_name = results[0].names[class_id[item]]
+        bbox = box[item]
+        bbox = [int(coord) for coord in bbox]
+
+3. If adding try/except function into the def main() then the code is automatically ended without alerting
+Error: PS C:\Users\james\Downloads\Visual Impaired Cam\renderdjangotest1-main>  c:; cd 'c:\Users\james\Downloads\Visual Impaired Cam\renderdjangotest1-main'; & 'C:\Users\james\AppData\Local\Programs\Python\Python39\python.exe' 'c:\Users\james\.vscode\extensions\ms-python.python-2023.14.0\pythonFiles\lib\python\debugpy\adapter/../..\debugpy\launcher' '55628' '--' 'C:\Users\james\Downloads\Visual Impaired Cam\renderdjangotest1-main\inputdemo\utils\utils.py'
+
+Solution: Replace the the 'has_dangerous_object' outside of try/except to avoid the exception occurs that prevent the rest of the code, including the alert, from executing.
