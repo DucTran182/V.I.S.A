@@ -1,5 +1,4 @@
-# V.I.S.A
-# Visual Impairment Support Application
+# Visual Impairment Support Application (V.I.S.A)
 
 ![Screenshot 2023-08-24 193557](https://github.com/DucTran182/V.I.S.A/assets/102782569/90976367-a6c1-4d59-aaf7-a29a1cae5497)
 
